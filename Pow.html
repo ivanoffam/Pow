@@ -1,0 +1,38 @@
+<p><input type="text" placeholder="base" 		id="b"><p>
+<p><input type="text" placeholder="exponent" 	id="exp"><p>
+<p><input type="text" placeholder="result" 		id="res"></p>
+
+<input type="submit" id="btn1" value="Pow loop" onclick="pow(b.value, exp.value)">
+<input type="button" id="btn2" value="Pow recursion" onclick="powRecursion(b.value, exp.value)">
+
+<script>		
+	function pow(b1, exp)
+	{
+		var result = 1;
+		
+		for(i = 1; i <= exp; i++)
+		{
+			result *= b1;
+		}
+		res.value = result;
+	} 
+	
+	function powRecursion(b1, exp)
+	{	
+		res.value = powRecursionCalc(b1, exp);
+		
+		function powRecursionCalc(b1, exp)
+		{
+			if(exp == 0){
+				return 1;
+			}
+			else if(exp > 0){
+				return b1 * powRecursionCalc(b1, exp - 1);
+			}
+			else
+			{
+				return "A number must be positive!";
+			}
+		}
+	}	
+</script>
